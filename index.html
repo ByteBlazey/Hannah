@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
+  <title>Document</title>
+</head>
+<body>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+
+  <main>
+    <div class="header">
+      <div class="content">
+        <div class="text animate-on-scroll slideLeft">
+          <h1>Hannah Stacey</h1>
+          <p>A name that carries the breeze of Rivers State and the warmth of June 12.</p>
+        </div>
+        <img src="First_11zon.jpg" alt="" class="animate-on-scroll slideRight" />
+      </div>
+    </div>
+  </main>
+
+  <section>
+    <div class="container-1">
+      <div class="content-1">
+        <img src="Second_11zon.jpg" alt="" class="animate-on-scroll slideDown" />
+        <div class="texty t1 animate-on-scroll slideUp">
+          <p>Your skin, as radiant as the sunset, glows with the quiet magic of golden hour.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-2">
+      <div class="content-2">
+        <div class="texty t2 animate-on-scroll slideLeft">
+          <p>Your soul, as gentle as a river's whisper, flows with kindness and grace</p>
+        </div>
+        <img src="Third_11zon.jpg" alt="" class="animate-on-scroll slideRight" />
+      </div>
+    </div>
+
+    <div class="container-3">
+      <div class="content-3">
+        <img src="Fourth_11zon.png" alt="" class="animate-on-scroll slideDown" />
+        <div class="texty t3 animate-on-scroll slideUp">
+          <p>You walk into a room like spring arrives — softly, but everything changes.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-4">
+      <div class="content-4">
+        <div class="texty t4 animate-on-scroll slideLeft">
+          <p>Purple suits you — not just in color, but in spirit. Royal, rare, and quietly powerful.</p>
+        </div>
+        <img src="fifth_11zon.jpg" alt="" class="animate-on-scroll slideRight" />
+      </div>
+    </div>
+
+    <div class="container-5">
+      <div class="content-5">
+        <img src="Sixth_11zon.png" alt="" class="animate-on-scroll slideDown" />
+        <div class="texty t5 animate-on-scroll slideUp">
+          <p>Born on June 12, you carry the light of summer and the promise of new beginnings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="audio-wrapper">
+  <h3>Now Playing</h3>
+  <audio src="screen-20250916-165833.mp3" controls autoplay loop></audio>
+</div>
+
+
+  <footer>
+    <p>💜 A tribute to Hannah Stacey 💜</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    window.addEventListener('click', () => {
+    document.getElementById('myAudio').play();
+  });
+  </script>
+</body>
+</html>
