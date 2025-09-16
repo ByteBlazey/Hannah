@@ -98,10 +98,27 @@
       observer.observe(el);
     });
 
-    window.addEventListener('click', () => {
+    /* window.addEventListener('click', () => {
     document.getElementById('myAudio').play();
-  });
+  }); */
+
+    const audio = document.getElementById('myAudio');
+
+    // Try autoplay on desktop
+    window.addEventListener('load', () => {
+      audio.play().catch(() => {
+        // Autoplay failed — wait for user interaction (mobile)
+        const enableAudio = () => {
+          audio.play();
+          document.removeEventListener('click', enableAudio);
+          document.removeEventListener('touchstart', enableAudio);
+        };
+        document.addEventListener('click', enableAudio);
+        document.addEventListener('touchstart', enableAudio);
+      });
+    });
   </script>
 </body>
 </html>
+
 
