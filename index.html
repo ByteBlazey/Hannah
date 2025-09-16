@@ -77,7 +77,7 @@
 
   <div class="audio-wrapper">
   <h3>Now Playing</h3>
-  <audio src="screen-20250916-165833.mp3" controls autoplay loop></audio>
+  <audio id="bg-music" src="screen-20250916-165833.mp3" loop></audio>
 </div>
 
 
@@ -102,23 +102,20 @@
     document.getElementById('myAudio').play();
   }); */
 
-    const audio = document.getElementById('myAudio');
+    function startMusic() {
+    const music = document.getElementById("bg-music");
+    music.play();
+    // Remove listener so it doesn’t run again
+    document.removeEventListener("click", startMusic);
+    document.removeEventListener("touchstart", startMusic);
+  }
 
-    // Try autoplay on desktop
-    window.addEventListener('load', () => {
-      audio.play().catch(() => {
-        // Autoplay failed — wait for user interaction (mobile)
-        const enableAudio = () => {
-          audio.play();
-          document.removeEventListener('click', enableAudio);
-          document.removeEventListener('touchstart', enableAudio);
-        };
-        document.addEventListener('click', enableAudio);
-        document.addEventListener('touchstart', enableAudio);
-      });
-    });
+  // Works for desktop clicks and mobile taps
+  document.addEventListener("click", startMusic);
+  document.addEventListener("touchstart", startMusic);
   </script>
 </body>
 </html>
+
 
 
